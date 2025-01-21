@@ -3,16 +3,11 @@ let count:number = 0;
 
 // Update the count display
 const updateCountDisplay = (): void =>  {
-    const countElement = document.getElementById('count');
-    countElement.textContent = count;
+    const countElement = document.getElementById('count') as HTMLElement;
+    if (countElement) {
+        countElement.textContent = count.toString();
+    }
 };
-
-// const updateCountDisplay = (): void =>  {
-//     const countElement = document.getElementById('count');
-//     if (countElement) {
-//         countElement.textContent = count.toString();
-//     }
-// };
 
 // Increment the count
 const increment = (): void => {
@@ -24,7 +19,7 @@ const increment = (): void => {
 const decrement = (): void => {
     count -= 1;
     updateCountDisplay();
-};
+}; 
 
 // Reset the count
 const reset = (): void => {
@@ -33,6 +28,6 @@ const reset = (): void => {
 };
 
 // Attach event listeners to buttons
-document.getElementById('increment-button').onclick = increment;
-document.getElementById('decrement-button').onclick = decrement;
-document.getElementById('reset-button').onclick = reset;
+(document.getElementById("increment-button") as HTMLElement) .onclick = increment; 
+(document.getElementById('decrement-button') as HTMLElement) .onclick  = decrement;
+(document.getElementById('reset-button') as HTMLElement) .onclick  = reset;
